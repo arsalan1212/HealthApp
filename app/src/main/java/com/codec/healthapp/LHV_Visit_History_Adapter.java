@@ -36,6 +36,7 @@ public class LHV_Visit_History_Adapter extends ExpandableRecyclerAdapter<LHV_Vis
         this.fragment=fragment;
         this.child=child;
         setItems(getSampleItems());
+
     }
 
     public static class PeopleListItem extends ExpandableRecyclerAdapter.ListItem {
@@ -117,20 +118,21 @@ public class LHV_Visit_History_Adapter extends ExpandableRecyclerAdapter<LHV_Vis
                 break;
         }
     }
-
     private List<PeopleListItem> getSampleItems() {
         List<PeopleListItem> items = new ArrayList<>();
-        ArrayList<HomeRemSubCatModel> mod=new ArrayList<>();
+
         for(int i=0;i<parent.size();i++)
         {
             items.add(new LHV_Visit_History_Adapter.PeopleListItem(parent.get(i).getCategoryID(),
                     parent.get(i).getSubCategoryID(),
                     parent.get(i).getCategoryName()));
 
+
+            ArrayList<HomeRemSubCatModel> mod=new ArrayList<>();
             try {
 
                  mod= child.get(i);
-                Log.e("arsalan","Size of Child: "+mod.size());
+                 Log.e("arsalan","Size of Child: "+mod.size());
 
             }catch (Exception e){
 

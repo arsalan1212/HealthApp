@@ -49,7 +49,8 @@
         android:layout_below="@id/banner"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/brain_icon"/>
+        android:src="@drawable/brain_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/teeth_"
         android:layout_width="30dp"
@@ -57,7 +58,8 @@
         android:layout_below="@id/brain_"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="25dp"
-        android:src="@drawable/teeth_icon"/>
+        android:src="@drawable/teeth_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/lungs_"
         android:layout_width="30dp"
@@ -65,7 +67,8 @@
         android:layout_below="@id/teeth_"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="25dp"
-        android:src="@drawable/lungs"/>
+        android:src="@drawable/lungs"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/liver_"
         android:layout_width="30dp"
@@ -73,7 +76,8 @@
         android:layout_below="@id/lungs_"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="35dp"
-        android:src="@drawable/liver_icon"/>
+        android:src="@drawable/liver_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/vines_"
         android:layout_width="30dp"
@@ -81,7 +85,8 @@
         android:layout_below="@id/liver_"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
-        android:src="@drawable/vines_icon"/>
+        android:src="@drawable/vines_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/bones_"
         android:layout_width="30dp"
@@ -89,7 +94,8 @@
         android:layout_below="@id/vines_"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
-        android:src="@drawable/bones_icon"/>
+        android:src="@drawable/bones_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/eye_"
         android:layout_width="30dp"
@@ -98,7 +104,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
         android:layout_marginRight="35dp"
-        android:src="@drawable/eye_cion"/>
+        android:src="@drawable/eye_cion"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/heart_"
         android:layout_width="30dp"
@@ -107,7 +114,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="30dp"
         android:layout_marginRight="35dp"
-        android:src="@drawable/heart_icon"/>
+        android:src="@drawable/heart_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/kidney_"
         android:layout_width="30dp"
@@ -116,7 +124,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="40dp"
         android:layout_marginRight="50dp"
-        android:src="@drawable/kindney_icon"/>
+        android:src="@drawable/kindney_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/digestive_system_"
         android:layout_width="30dp"
@@ -125,7 +134,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="30dp"
         android:layout_marginRight="35dp"
-        android:src="@drawable/digestive_sysytem_icon"/>
+        android:src="@drawable/digestive_sysytem_icon"
+        android:onClick="bodyPartsClickListiner"/>
     <ImageView
         android:id="@+id/nail_"
         android:layout_width="30dp"
@@ -134,6 +144,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="40dp"
         android:layout_marginRight="35dp"
-        android:src="@drawable/nail_icon"/>
+        android:src="@drawable/nail_icon"
+        android:onClick="bodyPartsClickListiner"/>
 
 </RelativeLayout>

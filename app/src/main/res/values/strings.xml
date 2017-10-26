@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">HealthApp</string>
     <string name="check_your_internet_connection">Please check Your internet Connection</string>
+    <string name="calculateBMI">Calculate BMI</string>
+
+
+    <!-- For BMI Calculator-->
+
+    <string name="very_severely_underweight">Very Severely underweight</string>
+    <string name="severely_underweight">Serverely underweight</string>
+    <string name="underweight">Underweight</string>
+    <string name="normal">Normal</string>
+    <string name="overweight">Overweight</string>
+    <string name="obese_class_i">Obsese class 1(Moderately Obese)</string>
+    <string name="obese_class_ii">Obsese class 2(Severely Obese)</string>
+    <string name="obese_class_iii">Obsese class 1(Very Severely Obese)</string>
+    <string name="calculateCalorie">Calculate Calorie</string>
+    <string name="calculateWHR">Calculate WHR</string>
+    <string name="calculateBodyFat">Calculate Body Fat</string>
 </resources>

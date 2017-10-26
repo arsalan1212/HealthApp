@@ -52,7 +52,7 @@ public class Home_Remedies_Pro extends AppCompatActivity {
 
         initViews();
         FetchDataFromServer();
-        new CountDownTimer(5000,1000){
+        new CountDownTimer(3000,1000){
             @Override
             public void onFinish() {
                 isTimeFinish =true;
@@ -66,6 +66,7 @@ public class Home_Remedies_Pro extends AppCompatActivity {
         }.start();
 
     }
+
 
     //initializing the views
     private void initViews(){
@@ -108,12 +109,14 @@ public class Home_Remedies_Pro extends AppCompatActivity {
                                     //parent header response end
 
                                     //child request start
-                                    fetchChildResponse(parent.get(i).getSubCategoryID());
+
+                                    fetchChildResponse(parent.get(0).getSubCategoryID());
+                                    arraylistHomeRemSubCat.clear();
                                     //child request end
-                                    Log.e("size of Child","SIze of child: "+child.size() );
+                                    Log.e("size of Child","SIze of child: "+child.size()  );
                                 }
 
-/*                                adapter = new LHV_Visit_History_Adapter(Home_Remedies_Pro.this, parent, child,Home_Remedies_Pro.this);
+                             /* adapter = new LHV_Visit_History_Adapter(Home_Remedies_Pro.this, parent, child,Home_Remedies_Pro.this);
                                 adapter.setMode(ExpandableRecyclerAdapter.MODE_ACCORDION);
                                 recycler.setLayoutManager(new LinearLayoutManager(Home_Remedies_Pro.this));
                                 recycler.setAdapter(adapter);*/
@@ -152,27 +155,25 @@ public class Home_Remedies_Pro extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        JSONObject childJsonObject = null;
+
                         try {
 
-                            childJsonObject = new JSONObject(response);
+                            JSONObject childJsonObject = new JSONObject(response);
                             if(!childJsonObject.getString("success").equals("0"))
                             {
 
                                 JSONArray childJsonArray = childJsonObject.getJSONArray("category");
-
                                 for(int i=0; i< childJsonArray.length(); i++) {
 
-                                  Log.e("TAG","RESPONSE for Iteration :"+i+" and SUB Cat Ud id is: "+subCatID+"   "+response);
 
+                                    Log.e("TAG","RESPONSE for Iteration :"+i+" and SUB Cat Ud id is: "+subCatID+"   "+response);
                                     JSONObject child_JsonObject = (JSONObject) childJsonArray.get(i);
-
                                     String detailID = child_JsonObject.getString("DETAIL_ID");
                                     String subID = child_JsonObject.getString("SUB_ID");
                                     String title = child_JsonObject.getString("TITLE_HEADING");
                                     String description = child_JsonObject.getString("DESCRIPTION");
                                     String image = child_JsonObject.getString("IMAGE");
-
+                                    Log.e("tag","detail_id: "+detailID+" Sub id: "+subID+"title "+title+"\n");
                                     Log.e("KHAN","tITLE: "+title+"  Description: "+description+"\n");
                                     HomeRemSubCatModel helperModel = new HomeRemSubCatModel(
                                             detailID,
@@ -186,7 +187,8 @@ public class Home_Remedies_Pro extends AppCompatActivity {
                                 }
                                 child.add(arraylistHomeRemSubCat);
                                 fillAdapter();
-                                Log.e("omer",""+child.size());
+
+                                Log.e("omer","child size: "+child.size()+" arraylistHomeremSubCat: "+arraylistHomeRemSubCat.size());
                             }
 
                         } catch (JSONException e) {
@@ -201,8 +203,10 @@ public class Home_Remedies_Pro extends AppCompatActivity {
                 Log.d("TAG","SUB CAT RESPONSE ERROR: "+error.getMessage());
             }
         });
+
         MySingleton.getInstance(Home_Remedies_Pro.this).addToRequestQueue(childRequest);
         //child request end
+
     }
     private void fillAdapter(){
 
@@ -213,6 +217,7 @@ public class Home_Remedies_Pro extends AppCompatActivity {
             adapter.setMode(ExpandableRecyclerAdapter.MODE_ACCORDION);
             recycler.setLayoutManager(new LinearLayoutManager(Home_Remedies_Pro.this));
             recycler.setAdapter(adapter);
+
             printArray();
         }
 
@@ -222,7 +227,6 @@ public class Home_Remedies_Pro extends AppCompatActivity {
 
         for(int i=0;i< child.size();i++){
             arrayList = child.get(i);
-            Log.e("Parent of Child","Parent Size: "+arrayList.size());
         }
 
         for(int j=0; j< arrayList.size(); j++){

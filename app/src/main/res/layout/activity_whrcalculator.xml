@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/spash_back"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <include layout="@layout/app_toolbar"
+        android:id="@+id/whr_toolbar"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WHR"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:typeface="serif"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculator"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:typeface="sans"
+        android:layout_marginTop="-8dp"/>
+
+
+    <!-- Gender layout Start -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp"
+            />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:layout_marginRight="10dp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:id="@+id/radioWHRMale"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:layout_marginLeft="20dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioWHRFemale"
+                android:layout_marginLeft="10dp"/>
+
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- Gender layout end -->
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_waist"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/searchbox"
+        android:padding="12dp"
+        android:hint="Enter your Waist in Inch (i.e. 100)"
+        android:inputType="number|numberDecimal"
+        android:textColorHint="#767676"
+        android:textColor="#767676"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_hip"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/searchbox"
+        android:padding="12dp"
+        android:hint="Enter your Hip in Inch (i.e. 110)"
+        android:inputType="number|numberDecimal"
+        android:textColorHint="#767676"
+        android:textColor="#767676"/>
+
+
+    <Button
+        android:id="@+id/calc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:onClick="calculateWHR"
+        android:text="@string/calculateWHR"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        android:background="#2e80a0"
+        android:padding="10dp"
+        android:textColor="#fff"
+        />
+
+    <TextView
+        android:id="@+id/WHRResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:textColor="#fff"
+        android:typeface="serif"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvDiseaseRisk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:typeface="serif"
+        android:background="@drawable/tv_background"
+        android:padding="15dp"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+       />
+</LinearLayout>

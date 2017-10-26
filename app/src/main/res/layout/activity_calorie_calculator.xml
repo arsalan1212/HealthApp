@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/spash_back"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+    <include layout="@layout/app_toolbar"
+        android:id="@+id/calorie_toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Calorie"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:typeface="serif"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Calculator"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:typeface="serif"
+        android:layout_marginTop="-8dp"
+       />
+<!-- ScrollView start -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Gender layout Start -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender:"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:textSize="20sp"
+                        android:textColor="#fff"
+                        android:layout_marginRight="10dp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:id="@+id/radioMale"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:textSize="20sp"
+                        android:textColor="#fff"
+                        android:layout_marginLeft="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioFemale"
+                        android:layout_marginLeft="10dp"/>
+
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Gender layout end -->
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_age"
+                android:textColor="#767676"
+                android:textColorHint="#767676"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/searchbox"
+                android:padding="12dp"
+                android:hint="Enter your Age in Years (i.e. 23)"
+                android:inputType="number|numberDecimal"
+              />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_weight"
+                android:textColor="#767676"
+                android:textColorHint="#767676"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/searchbox"
+                android:padding="12dp"
+                android:hint="Enter your Weight in Kg (i.e. 65)"
+                android:inputType="number|numberDecimal"
+               />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_height"
+                android:textColor="#767676"
+                android:textColorHint="#767676"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/searchbox"
+                android:padding="12dp"
+                android:hint="Enter your Height in feet.inch(i.e. 5.4)"
+                android:inputType="number|numberDecimal"
+               />
+
+            <Button
+                android:id="@+id/calc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:onClick="calculateCalorie"
+                android:text="@string/calculateCalorie"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                android:background="#2e80a0"
+                android:padding="10dp"
+                android:textColor="#fff"
+                />
+
+            <TextView
+                android:id="@+id/CalorieResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:typeface="serif" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ScrollView end-->
+</LinearLayout>

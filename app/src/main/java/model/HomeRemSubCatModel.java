@@ -12,7 +12,7 @@ public class HomeRemSubCatModel {
     private String description;
     private String image;
 
-    public HomeRemSubCatModel(String detailID, String subID, String titleHeading, String description, String image) {
+    public HomeRemSubCatModel( String detailID, String subID, String titleHeading, String description, String image) {
         this.detailID = detailID;
         this.subID = subID;
         this.titleHeading = titleHeading;

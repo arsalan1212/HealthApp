@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:id="@+id/banner"
-        android:background="#2e80a0">
+        android:background="#085270">
 
         <ImageView
             android:layout_width="30dp"
@@ -223,7 +223,8 @@
             android:layout_toLeftOf="@+id/v7"
             android:layout_above="@+id/v6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="BMICalculator">
             <ImageView
                 android:id="@+id/bmi_button"
                 android:layout_width="35dp"
@@ -247,7 +248,8 @@
             android:layout_toRightOf="@+id/v7"
             android:layout_above="@+id/v6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="BodyFatCalculator">
             <ImageView
                 android:id="@+id/body_fat_cal_button"
                 android:layout_width="35dp"
@@ -271,7 +273,8 @@
             android:layout_toLeftOf="@+id/v7"
             android:layout_below="@+id/v6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="CalorieCalculator">
             <ImageView
                 android:id="@+id/calorie_cal_button"
                 android:layout_width="35dp"
@@ -294,7 +297,8 @@
             android:layout_toRightOf="@+id/v7"
             android:layout_below="@+id/v6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="WHRCalculator">
             <ImageView
                 android:id="@+id/waist_hip_ratio_button"
                 android:layout_width="35dp"
