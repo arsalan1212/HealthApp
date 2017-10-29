@@ -2,8 +2,12 @@ package com.codec.healthapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import adapter.ViewPagerAdapter;
 
 /**
  * Created by RNSolution on 11/10/2017.
@@ -11,11 +15,22 @@ import android.view.View;
 
 public class Rich_Food extends AppCompatActivity {
 
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
+    private ViewPagerAdapter pagerAdapter;
     @Override
     protected void onCreate(Bundle createBundle)
     {
         super.onCreate(createBundle);
         setContentView(R.layout.rich_food);
+
+        mTabLayout = findViewById(R.id.tabs);
+        mViewPager = findViewById(R.id.pager);
+        pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(pagerAdapter);
+
+        mTabLayout.setupWithViewPager(mViewPager);
+
     }
 
     //back button click listiner

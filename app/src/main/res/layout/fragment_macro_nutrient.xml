@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.vitaminsFragment"
+    android:orientation="vertical"
+    >
+
+    <!--layout 1 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Fiber"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_fiber"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Protein"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/tv_protein"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            />
+    </LinearLayout>
+    <!--layout 1 end-->
+
+
+    <!--layout 2 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Water"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_water"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+    <!--layout 2 end-->
+
+    <!--layout 3 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Carbohydrates"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_carbohydrates_bg"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_carbohydrates"
+            android:padding="15dp"
+            />
+    </LinearLayout>
+    <!--layout 3 end-->
+</LinearLayout>

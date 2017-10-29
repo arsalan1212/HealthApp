@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/spash_back"
+    android:background="@drawable/activity_background"
     tools:context="com.codec.healthapp.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:id="@+id/banner"
-        android:background="#085270">
+        android:background="#216966">
 
         <ImageView
             android:layout_width="30dp"
@@ -78,7 +78,8 @@
             android:layout_toLeftOf="@+id/v3"
             android:layout_above="@+id/v2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="HomeRemediesClickListiner">
             <ImageView
                 android:id="@+id/home_button"
                 android:layout_width="35dp"
@@ -102,7 +103,8 @@
             android:layout_toRightOf="@+id/v3"
             android:layout_above="@+id/v2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="RichFoodClickListiner">
             <ImageView
                 android:id="@+id/rich_food_button"
                 android:layout_width="35dp"
@@ -126,7 +128,8 @@
             android:layout_toLeftOf="@+id/v3"
             android:layout_below="@+id/v2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="BodyPartWiseClickListiner">
             <ImageView
                 android:id="@+id/best_food_button"
                 android:layout_width="35dp"

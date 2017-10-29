@@ -17,4 +17,292 @@
     <string name="calculateCalorie">Calculate Calorie</string>
     <string name="calculateWHR">Calculate WHR</string>
     <string name="calculateBodyFat">Calculate Body Fat</string>
+
+
+    <!-- For body wise activity [different body parts title and description array] start-->
+
+    <!-- Bones Array -->
+    <string-array name="bones_title">
+        <item>Dairy Products</item>
+        <item>Spinach</item>
+        <item>Sardines</item>
+    </string-array>
+
+    <string-array name="bones_description">
+        <item>
+            Milk and other dairy foods are essential for bone health at all stages of life. Our bones support
+            us and allow us to move and protect our brain, heart, and other organs from injury. Bones also store
+            minerals such as calcium and phosphorous which help keep our bones strong
+        </item>
+
+        <item>
+            Spinach is a super food loaded with tons of nutrients in a low calorie package. Dark, leafy greens
+            like spinach are important for skin, hair, and bone health. They also provide protein, iron, vitamins,
+            and minerals.
+        </item>
+
+        <item>
+            Spinach is a super food loaded with tons of nutrients in a low calorie package. Dark, leafy greens
+            like spinach are important for skin, hair, and bone health. They also provide protein, iron,
+            vitamins, and minerals.
+        </item>
+    </string-array>
+    <!-- Bones array end -->
+
+
+    <!-- Brains Array start-->
+    <string-array name="brain_title">
+
+        <item>Walnuts</item>
+        <item>Blueberries</item>
+        <item>Spinach</item>
+    </string-array>
+
+    <string-array name="brain_description">
+        <item>
+            Being the best source of omega-3 fatty acids among all the nuts, they enhance the performance
+            the performance of neurotransmitters. It also improves the oxygen flow through blood vessels in the
+            brain and contains vitamin B6 and magnesium, which in turn improves the memory and intellectual skills.
+        </item>
+
+        <item>
+            Pratt, who is also on staff at Scripps Memorial Hospital in La Jolla, Calif., says that in animal studies
+            researchers have found that blueberries help protect the brain from oxidative stress and may reduce the
+            effects of age-related conditions such as Alzheimer disease or dementia.
+        </item>
+
+        <item>
+            Beyond spinach, vegetables like kale, collards and mustard greens could also be effective in slowing
+            down the brain aging process. Previous studies have found that both folate and beta-carotene are brain
+            boosters, but this study is the first to evaluate the benefits vitamin K has on the brain.
+        </item>
+    </string-array>
+    <!-- Brains Array end-->
+
+
+    <!--digestive system Array start -->
+    <string-array name="digestive_system_title">
+        <item>Ginger</item>
+        <item>Yogurt</item>
+        <item>Benefits of Peppermint Oil</item>
+    </string-array>
+
+    <string-array name="digestive_system_description">
+        <item>
+            Ginger in food, or ideally as a strong tea, helps stimulate saliva, bile and gastric juice
+            production to aid in digestion. Phenolic compounds like gingerol and various other volatile oils
+            are primarily responsible for ginger tea beneficial effect on yourdigestive system.
+        </item>
+
+        <item>
+            70 percent of a persons immune system is in the gut; “Healthy bacteria, such as the probiotics found
+            in healthy yogurt, are the gut first line of defense," she said. The American Gastrointestinal
+            Association recommends yogurt for digestive health and to ease constipation, diarrhea, and other
+            intestinal problems.
+        </item>
+
+        <item>
+            Several studies suggest that enteric-coated peppermint
+            oil capsules -- which allow the oil to pass
+            through the stomach so it can dissolve in the intestines -- may help relieve common symptoms of
+            irritable bowel syndrome such as abdominal pain, bloating, and gas
+        </item>
+    </string-array>
+    <!--digestive system Array end -->
+
+
+    <!--Eyes Array start -->
+    <string-array name="eyes_title">
+        <item>Carrot</item>
+        <item>Green, leafy vegetables</item>
+        <item>Salmon</item>
+    </string-array>
+
+    <string-array name="eyes_description">
+        <item>
+            You have probably heard that carrots and other orange-colored fruits and vegetables promote eye
+            health and protect vision, and it is true: Beta-carotene, a type of vitamin A that gives these
+            foods their orange hue, helps the retina and other parts of the eye to function smoothly.
+        </item>
+
+        <item>
+             Such as kale and spinach, are good for eyesight and preventing age-related eye diseases, including
+            cataracts and macular degeneration. Greens contain cartenoids such as lutein and zeaxanthin, which
+            promote vision and the health of the retina.
+        </item>
+
+        <item>
+            Best Foods for Eyesight. Share: Protect your eyes by eating more foods packed with these
+            vision-friendly nutrients — particularly if you have a family history of either macular
+            degeneration or cataracts. Delicious, heart-healthy salmon is rich in B-vitamins and omega-3
+            fatty acids, both of which can help protect eyes.
+        </item>
+    </string-array>
+    <!--Eyes Array end -->
+
+    <!--Heart Array start -->
+    <string-array name="heart_title">
+        <item>Salmon</item>
+        <item>Oatmeal</item>
+        <item>Olive oil</item>
+    </string-array>
+
+    <string-array name="heart_description">
+        <item>
+            Omega-3 fatty acids may decrease triglycerides, lower blood pressure slightly, reduce blood
+            clotting, decrease stroke and heart failure risk and reduce irregular heartbeats.
+        </item>
+
+        <item>
+            Start your day with a steaming bowl of oats, which are full of omega-3 fatty acids, folate,
+            and potassium. This fiber-rich superfood can lower levels of LDL (or bad) cholesterol and help
+            keep arteries clear.
+        </item>
+
+        <item>
+            The total amount of saturated fat and/or cholesterol in the diet takes a tumble when butter is removed. ... “Limited and not conclusive scientific
+            evidence suggests that eating about 2 tablespoons (23 grams) of olive oil daily may reduce the risk of coronary heart disease due to the monounsaturated fat in olive oil.
+        </item>
+    </string-array>
+    <!--Heart Array end -->
+
+    <!--Kidney Array start -->
+    <string-array name="kidney_title">
+        <item>Cabbage</item>
+        <item>onions</item>
+        <item>Red Bell Peppers</item>
+    </string-array>
+
+    <string-array name="kidney_description">
+
+        <item>
+            Broccoli, cabbage are good for heart. Here is why broccoli, cabbage and cauliflower are good for the heart - a chemical found in these vegetables can boost a natural defence mechanism to protect arteries from disease.
+        </item>
+
+        <item>
+            Not only are onions the staple of many dishes, but they are also good for us. While chopping onions may make you cry, the considerable health benefits of onionsshould bring a smile through your tears. Like garlic, onion consumption has been shown to lower high cholesterol levels and high blood pressure.
+        </item>
+
+        <item>
+            These are a particularly good choice for heart health as they are full of lycopene, which is not found in green peppers. They are also a source of cholesterol-lowering soluble fiber and powerful antioxidant vitamins A and C, which are good for heart health
+        </item>
+    </string-array>
+    <!--Kidney Array end -->
+
+
+    <!--Liver Array start -->
+    <string-array name="liver_title">
+        <item>Garlic</item>
+        <item>Grapes</item>
+        <item>Green Leaf Vegetables</item>
+    </string-array>
+
+    <string-array name="liver_description">
+        <item>
+            According to the Huffington Post, garlic helpsyour liver to activate enzymes that can flush out toxins. In addition, it also has high levels of the natural compounds allicin and selenium, which aid in liver cleansing.
+        </item>
+
+        <item>
+            Consuming grapes also reduced liver, kidney and abdominal fat weight, compared with those consuming the control diet. Additionally, grape intake increased markers of antioxidant defense, particularly in the liver and kidneys.
+        </item>
+
+        <item>
+            Try lightly roasting them with garlic and lemon juice or balsamic vinegar to turn them into a tasty and healthy dish. Summary: Cruciferous vegetables like broccoli and Brussels sprouts may increase the liver natural detoxification enzymes, help protect it from damage and improve blood levels of liver enzymes
+        </item>
+    </string-array>
+    <!--Liver Array end -->
+
+
+    <!--Lungs Array start -->
+    <string-array name="lungs_title">
+        <item>Water</item>
+        <item>Apple</item>
+        <item>Grapes</item>
+    </string-array>
+
+    <string-array name="lungs_description">
+        <item>
+            The importance of drinking adequate amounts of water cannot be overstated. Water flushes toxins out of the body, and promotes the optimum health and function of every major and minor bodily organ and system. Kidneys cannot filter toxins out of the body without water.
+        </item>
+
+        <item>
+            Apples protect the lungs, Eating an apple a day may be good for the lungs, researchers have discovered. ... They found that good lung function was associated with high intakes of vitamins C, E, and beta-carotene, citrus fruits, apples, and fruit juices.
+        </item>
+
+        <item>
+            Grapes contain powerful antioxidants known as polyphenols, which may slow or prevent many types of cancer, including esophageal, lung, mouth, pharynx, endometrial, pancreatic, prostate and colon. The resveratrol found in red wine famous for heart health is a type of polyphenol found in the skins of red grapes.
+        </item>
+    </string-array>
+    <!--Lungs Array end -->
+
+    <!--Nails Array start -->
+    <string-array name="nail_title">
+        <item>Eggs</item>
+        <item>Tomatoes</item>
+        <item>Beans</item>
+    </string-array>
+
+    <string-array name="nail_description">
+        <item>
+            Eggs are a good source of protein and contain some vitamin D, and they also have biotin. "Biotin, a B-complex vitamin, may play a role in the development of keratin," says Dr. Zeichner, who explains that patients with biotin deficiency often have weak hair and nails.
+        </item>
+
+        <item>
+            Tomatoes contain high amounts of biotin and lycopene, which can help your nails grow and thicken naturally for a healthy, shiny look. They are also full of vitamin A and contain even more vitamin C than an orange!
+        </item>
+
+        <item>
+            Eggs are a good source of protein and contain some vitamin D, and they also have biotin. "Biotin, a B-complex vitamin, may play a role in the development of keratin," says Dr. Zeichner, who explains that patients with biotin deficiency often have weak hair and nails.
+        </item>
+    </string-array>
+    <!--Nails Array end -->
+
+    <!--teeth Array start -->
+    <string-array name="teeth_title">
+        <item>Nuts</item>
+        <item>Milk</item>
+        <item>Apple</item>
+    </string-array>
+
+    <string-array name="teeth_description">
+        <item>
+            Nuts can be great for your teeth as they have tremendous amounts of fiber, folic acid calcium, and other vitamins. For instance, peanuts are a great source of calcium and vitamin D, and almonds offer good amounts of calcium, which is beneficial to teeth and gums
+        </item>
+
+        <item>
+            It is not just your bones that benefit from milk; your teeth get stronger and healthier when you drink, too, because it contains calcium. Calcium helps protect your teeth against periodontal (gum) disease and keeps your jaw bone strong and healthy.
+        </item>
+
+        <item>
+            Celery might get a bad reputation for being bland, watery and full of those pesky strings, but like carrots and apples, it acts a bit like a toothbrush, scraping food particles and bacteria away from your teeth. It is also a good source of vitamins A and C, two antioxidants that give the health of your gums a boost.
+        </item>
+    </string-array>
+    <!--teeth Array end -->
+
+    <!--Vien Array start -->
+    <string-array name="vien_title">
+        <item>Parsley</item>
+        <item>Cayenne Pepper</item>
+        <item>garlic</item>
+    </string-array>
+
+    <string-array name="vien_description">
+        <item>
+            Parsley contains two very powerful elements that reduce and treat varicose veins:luteolin and vitamin C. These two components act as great anti-inflammatoryagent that reduce the occurrences of thrombosis. They also relieve swelling andheaviness in the legs, when consumed regularly.
+        </item>
+
+        <item>
+            Cayenne pepper is considered a miracle treatment for varicose veins. Cayenne pepper is a rich source of vitamin C and bioflavonoids, which increases blood circulation and eases the pain of congested, swollen veins. Add one teaspoon of cayenne pepper powder to a cup of hot water and stir it well.
+        </item>
+
+        <item>
+            Garlic is excellent for reducing inflammation and the symptoms of varicose veins. It also helps break up harmful toxins in the blood vessels and improve circulation. Slice up six garlic cloves and put them in a clean glass jar. Extract the juice from three oranges and add it to the jar
+        </item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Vien Array end -->
+
+    <!-- For body wise activity [different body parts title and description array] end -->
 </resources>

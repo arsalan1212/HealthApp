@@ -1,16 +1,22 @@
 package com.codec.healthapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
@@ -18,7 +24,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.innodroid.expandablerecycler.ExpandableRecyclerAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,23 +32,24 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import Utils.MyAppUrl;
-import model.HomeRemSubCatModel;
+import adapter.LHV_Visit_History_Adapter;
 import model.HomeRemediesModel;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 /**
  * Created by RNSolution on 11/10/2017.
  */
 
 public class Home_Remedies_Pro extends AppCompatActivity {
-    RecyclerView recycler;
+    StickyListHeadersListView stickyList;
     ArrayList<HomeRemediesModel> parent = new ArrayList<>();
-    ArrayList<HomeRemSubCatModel> arraylistHomeRemSubCat= new ArrayList<>();
-    ArrayList<ArrayList<HomeRemSubCatModel>> child= new ArrayList<>();
+  //  ArrayList<ArrayList<HomeRemSubCatModel>> child= new ArrayList<>();
     LHV_Visit_History_Adapter adapter;
     private RelativeLayout layoutRecyclerView;
     private LinearLayout layoutConnection;
     private ProgressBar mProgressBar;
-    private boolean isTimeFinish=false;
+    private EditText editTextSearch;
+    private TextView tvNoRecordFound;
     @Override
     protected void onCreate(Bundle CreateBundle)
     {
@@ -52,30 +58,98 @@ public class Home_Remedies_Pro extends AppCompatActivity {
 
         initViews();
         FetchDataFromServer();
-        new CountDownTimer(3000,1000){
-            @Override
-            public void onFinish() {
-                isTimeFinish =true;
-                fillAdapter();
-            }
-
-            @Override
-            public void onTick(long l) {
-
-            }
-        }.start();
-
     }
 
 
     //initializing the views
     private void initViews(){
-        recycler = (RecyclerView) findViewById(R.id.main_recycler);
+        stickyList = (StickyListHeadersListView) findViewById(R.id.homeRemediesList);
+
         layoutConnection = findViewById(R.id.layout_Connection);
         layoutRecyclerView = findViewById(R.id.layout_RecyclerView);
         mProgressBar = findViewById(R.id.progresbar);
 
+        tvNoRecordFound = findViewById(R.id.tvNoRecorFound);
+
+        editTextSearch = findViewById(R.id.searchcard);
+        editTextSearch.addTextChangedListener(mTextwatcher);
+
+        editTextSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    InputMethodManager in = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    in.hideSoftInputFromWindow(editTextSearch.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
     }
+    private TextWatcher mTextwatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            boolean isFound =false;
+            ArrayList<HomeRemediesModel> filterList = new ArrayList<>();
+            String newText = String.valueOf(charSequence).toLowerCase();
+
+            if(!TextUtils.isEmpty(newText)){
+
+                for(int j=0; j<parent.size();j++){
+
+                    String categoryTitle = parent.get(j).getCategoryName().toLowerCase();
+
+                    if(categoryTitle.contains(newText)){
+
+                        isFound= true;
+                        filterList.add(parent.get(j));
+                    }else{
+                        isFound = false;
+                    }
+
+                }
+
+
+                if(filterList.size()!=0){
+
+                    tvNoRecordFound.setVisibility(View.GONE);
+                    stickyList.setVisibility(View.VISIBLE);
+                }
+                else if(!isFound && !newText.equals("")){
+                    tvNoRecordFound.setVisibility(View.VISIBLE);
+                    stickyList.setVisibility(View.VISIBLE);
+                    adapter.setFilter(parent);
+                }
+                else{
+                    tvNoRecordFound.setVisibility(View.VISIBLE);
+                    stickyList.setVisibility(View.GONE);
+                }
+                adapter.setFilter(filterList);
+                adapter.notifyDataSetChanged();
+            }
+            else{
+
+                tvNoRecordFound.setVisibility(View.GONE);
+                stickyList.setVisibility(View.VISIBLE);
+                adapter.setFilter(parent);
+                adapter.notifyDataSetChanged();
+            }
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+
+        }
+    };
     //fetching data from server
     private void FetchDataFromServer() {
 
@@ -84,11 +158,12 @@ public class Home_Remedies_Pro extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        mProgressBar.setVisibility(View.GONE);
-                        layoutRecyclerView.setVisibility(View.VISIBLE);
-                        layoutConnection.setVisibility(View.GONE);
 
                         if(response!=null){
+                            mProgressBar.setVisibility(View.GONE);
+                            layoutRecyclerView.setVisibility(View.VISIBLE);
+                            layoutConnection.setVisibility(View.GONE);
+
                             try {
                                 JSONObject parentJsonObject = new JSONObject(response);
 
@@ -102,25 +177,17 @@ public class Home_Remedies_Pro extends AppCompatActivity {
                                     String subCategoryId = childJsonObject.getString("SUB_CATEGORY_ID");
                                     String categoryName = childJsonObject.getString("SUB_CATE_NAME");
 
-                                    HomeRemediesModel helper = new HomeRemediesModel(categoryId,subCategoryId,categoryName);
+                                    HomeRemediesModel helper = new HomeRemediesModel();
+
+                                    helper.setCategoryID(categoryId);
+                                    helper.setCategoryName(categoryName);
+                                    helper.setSubCategoryID(subCategoryId);
 
                                     parent.add(helper);
-
-                                    //parent header response end
-
-                                    //child request start
-
-                                    fetchChildResponse(parent.get(0).getSubCategoryID());
-                                    arraylistHomeRemSubCat.clear();
-                                    //child request end
-                                    Log.e("size of Child","SIze of child: "+child.size()  );
                                 }
 
-                             /* adapter = new LHV_Visit_History_Adapter(Home_Remedies_Pro.this, parent, child,Home_Remedies_Pro.this);
-                                adapter.setMode(ExpandableRecyclerAdapter.MODE_ACCORDION);
-                                recycler.setLayoutManager(new LinearLayoutManager(Home_Remedies_Pro.this));
-                                recycler.setAdapter(adapter);*/
-                                fillAdapter();
+                                adapter = new LHV_Visit_History_Adapter( parent,Home_Remedies_Pro.this);
+                                stickyList.setAdapter(adapter);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -146,93 +213,6 @@ public class Home_Remedies_Pro extends AppCompatActivity {
         });
 
         MySingleton.getInstance(Home_Remedies_Pro.this).addToRequestQueue(request);
-    }
-//fetching subcategory of each parent Header
-    private void fetchChildResponse(final String subCatID){
-
-        StringRequest childRequest = new StringRequest(Request.Method.POST, MyAppUrl.HOME_REM_SUB_CATEGORY_URL+subCatID,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-
-                        try {
-
-                            JSONObject childJsonObject = new JSONObject(response);
-                            if(!childJsonObject.getString("success").equals("0"))
-                            {
-
-                                JSONArray childJsonArray = childJsonObject.getJSONArray("category");
-                                for(int i=0; i< childJsonArray.length(); i++) {
-
-
-                                    Log.e("TAG","RESPONSE for Iteration :"+i+" and SUB Cat Ud id is: "+subCatID+"   "+response);
-                                    JSONObject child_JsonObject = (JSONObject) childJsonArray.get(i);
-                                    String detailID = child_JsonObject.getString("DETAIL_ID");
-                                    String subID = child_JsonObject.getString("SUB_ID");
-                                    String title = child_JsonObject.getString("TITLE_HEADING");
-                                    String description = child_JsonObject.getString("DESCRIPTION");
-                                    String image = child_JsonObject.getString("IMAGE");
-                                    Log.e("tag","detail_id: "+detailID+" Sub id: "+subID+"title "+title+"\n");
-                                    Log.e("KHAN","tITLE: "+title+"  Description: "+description+"\n");
-                                    HomeRemSubCatModel helperModel = new HomeRemSubCatModel(
-                                            detailID,
-                                            subID,
-                                            title,
-                                            description,
-                                            image
-                                    );
-
-                                    arraylistHomeRemSubCat.add(helperModel);
-                                }
-                                child.add(arraylistHomeRemSubCat);
-                                fillAdapter();
-
-                                Log.e("omer","child size: "+child.size()+" arraylistHomeremSubCat: "+arraylistHomeRemSubCat.size());
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Log.e("khan",e.toString());
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                Log.d("TAG","SUB CAT RESPONSE ERROR: "+error.getMessage());
-            }
-        });
-
-        MySingleton.getInstance(Home_Remedies_Pro.this).addToRequestQueue(childRequest);
-        //child request end
-
-    }
-    private void fillAdapter(){
-
-
-        if(!child.isEmpty() && !parent.isEmpty() && isTimeFinish){
-
-            adapter = new LHV_Visit_History_Adapter(Home_Remedies_Pro.this, parent, child,Home_Remedies_Pro.this);
-            adapter.setMode(ExpandableRecyclerAdapter.MODE_ACCORDION);
-            recycler.setLayoutManager(new LinearLayoutManager(Home_Remedies_Pro.this));
-            recycler.setAdapter(adapter);
-
-            printArray();
-        }
-
-    }
-    private void printArray(){
-        ArrayList<HomeRemSubCatModel> arrayList= new ArrayList<>();
-
-        for(int i=0;i< child.size();i++){
-            arrayList = child.get(i);
-        }
-
-        for(int j=0; j< arrayList.size(); j++){
-
-            Log.e("Home","Items of Home: "+ arrayList.get(j).getTitleHeading());
-        }
     }
     //back button click listiner
     public void GoBackbtn(View view){

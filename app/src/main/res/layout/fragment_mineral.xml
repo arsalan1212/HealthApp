@@ -1,0 +1,142 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.vitaminsFragment"
+    android:orientation="vertical"
+    >
+
+    <!--layout 1 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Calcuim"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_calcuim"
+            android:padding="4dp"
+          />
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Copper"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv_copper"
+            android:padding="4dp"/>
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Iron"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv_iron"
+            android:layout_marginRight="15dp"
+            android:padding="4dp"/>
+    </LinearLayout>
+    <!--layout 1 end-->
+
+
+    <!--layout 2 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Phosphorus"
+            android:textSize="14sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_phosphorus"
+            android:padding="4dp"
+            />
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Potassium"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv_potassium"
+            android:padding="4dp"/>
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Magnesium"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv_magnesium"
+            android:layout_marginRight="15dp"
+            android:padding="3dp"/>
+    </LinearLayout>
+    <!--layout 2 end-->
+
+    <!--layout 3 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Sodium"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv_sodium"
+            android:padding="4dp"/>
+
+        <TextView
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:text="Zinc"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv_zinc"
+            android:layout_marginRight="15dp"
+            android:padding="4dp"/>
+
+    </LinearLayout>
+    <!--layout 3 end-->
+</LinearLayout>

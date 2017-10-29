@@ -10,9 +10,16 @@ public class HomeRemediesModel {
     private String subCategoryID;
     private String categoryName;
 
-    public HomeRemediesModel(String categoryID, String subCategoryID, String categoryName) {
+
+    public void setCategoryID(String categoryID) {
         this.categoryID = categoryID;
+    }
+
+    public void setSubCategoryID(String subCategoryID) {
         this.subCategoryID = subCategoryID;
+    }
+
+    public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
 

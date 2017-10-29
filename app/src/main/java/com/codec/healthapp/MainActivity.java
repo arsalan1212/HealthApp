@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 
 import calculators.BMICalculatorActivity;
 import calculators.BodyFatCalculatorActivity;
@@ -13,38 +12,29 @@ import calculators.calorieCalculatorActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView home_button,best_food_button,rich_food_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        home_button  = (ImageView) findViewById(R.id.home_button);
-        best_food_button  = (ImageView) findViewById(R.id.best_food_button);
-        rich_food_button  = (ImageView) findViewById(R.id.rich_food_button);
-        home_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent obj = new Intent(MainActivity.this,Home_Remedies_Pro.class);
-                startActivity(obj);
-            }
-        });
-        best_food_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent obj = new Intent(MainActivity.this,Best_Food_Body_Wise.class);
-                startActivity(obj);
-            }
-        });
-        rich_food_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent obj = new Intent(MainActivity.this,Rich_Food.class);
-                startActivity(obj);
-            }
-        });
     }
 
+    public void HomeRemediesClickListiner(View view){
+        Intent obj = new Intent(MainActivity.this,Home_Remedies_Pro.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+    }
+
+    public void RichFoodClickListiner(View view){
+        Intent obj = new Intent(MainActivity.this,Rich_Food.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+    }
+    public void BodyPartWiseClickListiner(View view){
+        Intent obj = new Intent(MainActivity.this,Best_Food_Body_Wise.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+    }
 
     //BMI Calculator
     public void BMICalculator(View view){

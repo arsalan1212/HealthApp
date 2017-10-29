@@ -48,8 +48,14 @@
         <activity
             android:name="calculators.WHRCalculatorActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name="calculators.BodyFatCalculatorActivity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name="calculators.BodyFatCalculatorActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".HomeRemediesSubCatDetails"
+            android:parentActivityName=".Home_Remedies_Pro" />
+        <activity android:name=".Body_parts_Detail"
+            android:parentActivityName=".Best_Food_Body_Wise"></activity>
     </application>
 
 </manifest>

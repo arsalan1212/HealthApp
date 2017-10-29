@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/spash_back">
+    android:background="@drawable/activity_background">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:id="@+id/banner"
-        android:background="#2e80a0">
+        android:background="#216966">
 
         <ImageView
             android:layout_width="30dp"
@@ -42,7 +40,8 @@
     android:layout_height="wrap_content"
     android:layout_below="@id/banner"
     android:id="@+id/layout_RecyclerView"
-    android:visibility="gone">
+    android:visibility="gone"
+   >
     <EditText
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -51,33 +50,43 @@
         android:paddingLeft="5dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/searchbox"
-        android:hint="Search Card No"
+        android:hint="Search Remidies"
         android:textColorHint="#8d8d8d"
         android:imeOptions="actionSearch"
         android:textColor="#000"
         android:singleLine="true"
         android:layout_centerHorizontal="true"
         android:textSize="13sp"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginRight="16dp" />
 
     <TextView
-        android:id="@+id/txt"
+        android:id="@+id/tvNoRecorFound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No Record Found "
+        android:text="No Record Found! "
         android:layout_centerInParent="true"
         android:gravity="center"
         android:visibility="gone"
-        android:textColor="@color/colorPrimary"
-        />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_recycler"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/searchcard"
-        android:layout_marginTop="10dp"
-        android:layout_height="match_parent"
+        android:textSize="24sp"
+        android:textColor="#ff00"
+
         />
 
+<!--    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchcard"
+        android:layout_marginTop="10dp"
+        android:id="@+id/main_recyclerView">
+
+    </android.support.v7.widget.RecyclerView>-->
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView
+        android:id="@+id/homeRemediesList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchcard"
+        android:layout_marginTop="10dp"/>
+-->
 </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
