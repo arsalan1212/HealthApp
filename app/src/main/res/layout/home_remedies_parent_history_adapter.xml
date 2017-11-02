@@ -12,13 +12,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp">
 
-       <!-- <ImageView
-            android:id="@+id/showmore"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/show_more_icon"
-            android:layout_centerVertical="true"/>-->
+
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
@@ -30,13 +24,22 @@
             android:padding="12dp"
             android:layout_centerVertical="true"/>
 
+         <ImageView
+        android:id="@+id/right_side"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="30dp"
+        android:src="@drawable/right_arrow"
+        android:layout_centerVertical="true"
+             android:layout_alignParentRight="true"/>
+
     </RelativeLayout>
 
-   <!-- <View
+    <View
         android:layout_width="match_parent"
-        android:layout_marginLeft="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="1dp"
         android:background="@drawable/child_divider"
         android:layout_marginBottom="10dp"/>
--->
 </LinearLayout>

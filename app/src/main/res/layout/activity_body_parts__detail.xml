@@ -1,184 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/activity_background">
+    android:orientation="vertical"
+    android:background="@color/activity_bg_color"
+    tools:context="com.codec.healthapp.Body_parts_Detail">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <!--toolbar start-->
+    <RelativeLayout
+        android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
+        android:layout_height="?actionBarSize"
+        android:background="#216966">
 
-        tools:context="com.codec.healthapp.Body_parts_Detail"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:onClick="GoBackbtn"
+            android:src="@drawable/back_icon" />
 
-        <include layout="@layout/app_toolbar"
-            android:id="@+id/toolbar_bodyparts_detail"/>
+        <TextView
+            android:id="@+id/tvbodyPartDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <!--Row 1 Start -->
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/info" />
+    </RelativeLayout>
+    <!--toolbar end-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:orientation="horizontal"
-            android:background="@drawable/body_parts_detail_row_bg"
-            android:padding="12dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/bodyPart_image1"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@drawable/eggs"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FFF"
-                android:layout_gravity="center"/>
-
-            <!--Nested Layout Start -->
+            <!--Row 1 Start -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp">
-                <TextView
+                android:layout_height="160dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/body_parts_detail_row_bg"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/bodyPart_image1"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/eggs"
+                    app:civ_border_color="#FFF"
+                    app:civ_border_width="2dp" />
+
+                <!--Nested Layout Start -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Dairy Product"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:id="@+id/tvBodyPartTitle1"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/tvBodyPartTitle1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy ProductDairy Product"
+                        android:layout_marginBottom="5dp"
+                        android:text="Dairy Product"
                         android:textColor="#fff"
-                        android:textSize="16sp"
-                        android:id="@+id/tvBodyPartDescription1"/>
-                </ScrollView>
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvBodyPartDescription1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy ProductDairy Product"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </ScrollView>
+                </LinearLayout>
+                <!--Nested Layout End -->
             </LinearLayout>
-            <!--Nested Layout End -->
-        </LinearLayout>
-        <!--Row 1 End -->
+            <!--Row 1 End -->
 
 
-
-        <!--Row 2 Start -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:orientation="horizontal"
-            android:background="@drawable/body_parts_detail_row_bg"
-            android:padding="12dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/bodyPart_image2"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@drawable/eggs"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FFF"
-                android:layout_gravity="center"/>
-
-            <!--Nested Layout Start -->
+            <!--Row 2 Start -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp">
-                <TextView
+                android:layout_height="160dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/body_parts_detail_row_bg"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/bodyPart_image2"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/eggs"
+                    app:civ_border_color="#FFF"
+                    app:civ_border_width="2dp" />
+
+                <!--Nested Layout Start -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Dairy Product"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:id="@+id/tvBodyPartTitle2"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/tvBodyPartTitle2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy ProductDairy Product"
+                        android:layout_marginBottom="5dp"
+                        android:text="Dairy Product"
                         android:textColor="#fff"
-                        android:textSize="16sp"
-                        android:id="@+id/tvBodyPartDescription2"/>
-                </ScrollView>
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvBodyPartDescription2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy ProductDairy Product"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </ScrollView>
+                </LinearLayout>
+                <!--Nested Layout End -->
             </LinearLayout>
-            <!--Nested Layout End -->
-        </LinearLayout>
-        <!--Row 2 End -->
+            <!--Row 2 End -->
 
 
-
-        <!--Row 3 Start -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:orientation="horizontal"
-            android:background="@drawable/body_parts_detail_row_bg"
-            android:padding="12dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/bodyPart_image3"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@drawable/eggs"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FFF"
-                android:layout_gravity="center"/>
-
-            <!--Nested Layout Start -->
+            <!--Row 3 Start -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp">
-                <TextView
+                android:layout_height="160dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/body_parts_detail_row_bg"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/bodyPart_image3"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/eggs"
+                    app:civ_border_color="#FFF"
+                    app:civ_border_width="2dp" />
+
+                <!--Nested Layout Start -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Dairy Product"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:id="@+id/tvBodyPartTitle3"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/tvBodyPartTitle3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy ProductDairy Product"
+                        android:layout_marginBottom="5dp"
+                        android:text="Dairy Product"
                         android:textColor="#fff"
-                        android:textSize="16sp"
-                        android:id="@+id/tvBodyPartDescription3"/>
-                </ScrollView>
-            </LinearLayout>
-            <!--Nested Layout End -->
-        </LinearLayout>
-        <!--Row 3 End -->
-    </LinearLayout>
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-</ScrollView>
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvBodyPartDescription3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy Product Dairy ProductDairy Product"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </ScrollView>
+                </LinearLayout>
+                <!--Nested Layout End -->
+            </LinearLayout>
+            <!--Row 3 End -->
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

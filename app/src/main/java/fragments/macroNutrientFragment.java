@@ -1,5 +1,6 @@
 package fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codec.healthapp.R;
+import com.codec.healthapp.RichFoodDetailAcivity;
 
 public class macroNutrientFragment extends Fragment implements View.OnClickListener {
 
@@ -46,22 +48,43 @@ public class macroNutrientFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        Intent intent =null;
         switch (view.getId()){
 
             case R.id.tv_fiber:
                 Toast.makeText(getActivity().getApplicationContext(), "Fiber", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_protein:
                 Toast.makeText(getActivity().getApplicationContext(), "Protein", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_water:
                 Toast.makeText(getActivity().getApplicationContext(), "Water", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_carbohydrates:
                 Toast.makeText(getActivity().getApplicationContext(), "Carbohydrates", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
         }
     }

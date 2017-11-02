@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="activity_bg_color">#152831</color>
     <color name="toolbar_color">#216966</color>
+    <color name="deep_green">#009b97</color>
+
+    <color name="light_green">#8a979d</color>
 </resources>

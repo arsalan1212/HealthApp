@@ -1,0 +1,219 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.vitaminsFragment"
+    android:orientation="vertical"
+   >
+
+    <!--layout 1 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:layout_marginLeft="15dp"
+            android:text="A"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:id="@+id/tv_vitmin_A"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:layout_marginLeft="12dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:id="@+id/tv_vitmin_B12"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_vitmin_B6"/>
+
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:text="C"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_vitmin_C"
+            android:layout_marginRight="15dp"/>
+    </LinearLayout>
+    <!--layout 1 end-->
+
+
+    <!--layout 2 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_vitmin_B9"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:text="K"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_vitmin_K"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:text="E"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_vitmin_E"/>
+
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="28sp"
+            android:text="D"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_vitmin_D"
+            android:layout_marginRight="15dp"/>
+    </LinearLayout>
+    <!--layout 2 end-->
+
+
+
+    <!--layout 3 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+     >
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Lycopene"
+            android:textSize="8sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_lycopene"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Folic Acide"
+            android:textSize="8sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_folic_acid"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Choline"
+            android:textSize="8sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_choline"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Cryptoxanthin"
+            android:textSize="8sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_cryptoxanthin"
+            android:layout_marginRight="15dp"/>
+    </LinearLayout>
+    <!--layout 3 end-->
+
+
+    <!--layout 4 start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Carotene"
+            android:textSize="10sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_carotene"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Betaine"
+            android:textSize="10sp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/tv_header_circualar_bg"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/tv_betaine"/>
+
+    </LinearLayout>
+    <!--layout 4end-->
+</LinearLayout>

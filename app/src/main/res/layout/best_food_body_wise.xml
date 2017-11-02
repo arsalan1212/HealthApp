@@ -38,9 +38,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/banner"
         android:padding="30dp"
-        android:src="@drawable/skelaton"/>
+        android:src="@drawable/skelaton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/brain_"
         android:layout_width="30dp"
@@ -146,4 +147,128 @@
         android:src="@drawable/nail_icon"
         android:onClick="bodyPartsClickListiner"/>
 
+
+    <!-- Footer layout start -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#018b82"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/layout_Footer"
+        android:gravity="center"
+        >
+
+        <!-- Layout disease start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="2dp"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="5dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/disease"
+                android:id="@+id/imageViewDisease"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disease"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout disease end-->
+
+
+        <!-- Layout plant start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/plant"
+                android:id="@+id/imageViewPlant"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plant"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout plant end-->
+
+        <!-- Layout favorite start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/favorite"
+                android:id="@+id/imageViewFavorite"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout favorite end-->
+
+        <!-- Layout notes start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/notes"
+                android:id="@+id/imageViewNotes"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout notes end-->
+
+
+        <!-- Layout setting start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/setting"
+                android:id="@+id/imageViewSetting"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Setting"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout setting end-->
+
+    </LinearLayout>
+    <!-- Footer layout end -->
 </RelativeLayout>

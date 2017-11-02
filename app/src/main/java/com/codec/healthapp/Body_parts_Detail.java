@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -17,14 +18,12 @@ public class Body_parts_Detail extends AppCompatActivity {
     private Toolbar mToolbar;
 
     CircleImageView circleImageView1,circleImageView2,circleImageView3;
-    TextView tvTitle1,tvTitle2,tvTitle3;
+    TextView tvTitle1,tvTitle2,tvTitle3,tvBodypartTitle;
     TextView tvDescription1,tvDescription2,tvDescription3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_parts__detail);
-
-        mToolbar = findViewById(R.id.toolbar_bodyparts_detail);
 
         circleImageView1 = findViewById(R.id.bodyPart_image1);
         circleImageView2 = findViewById(R.id.bodyPart_image2);
@@ -38,6 +37,8 @@ public class Body_parts_Detail extends AppCompatActivity {
         tvDescription2 = findViewById(R.id.tvBodyPartDescription2);
         tvDescription3 = findViewById(R.id.tvBodyPartDescription3);
 
+        tvBodypartTitle = findViewById(R.id.tvbodyPartDetailTitle);
+
         Intent intent = getIntent();
 
         if(intent!=null){
@@ -48,9 +49,8 @@ public class Body_parts_Detail extends AppCompatActivity {
             bodyPartName = intent.getStringExtra("bodypartName");
         }
 
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle(bodyPartName);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        tvBodypartTitle.setText(bodyPartName);
 
         //by filling data into the Views
         setViews();
@@ -69,5 +69,14 @@ public class Body_parts_Detail extends AppCompatActivity {
         tvDescription1.setText(descriptionArray[0]);
         tvDescription2.setText(descriptionArray[1]);
         tvDescription3.setText(descriptionArray[2]);
+    }
+
+
+    //back button
+    public void GoBackbtn(View view){
+        Intent intent = new Intent(this, Best_Food_Body_Wise.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

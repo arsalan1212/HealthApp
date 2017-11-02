@@ -1,6 +1,7 @@
 package fragments;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codec.healthapp.R;
+import com.codec.healthapp.RichFoodDetailAcivity;
 
 public class vitaminsFragment extends Fragment implements View.OnClickListener {
 
@@ -124,57 +126,127 @@ public class vitaminsFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+        Intent intent =null;
         switch (view.getId()){
 
             case R.id.tv_vitmin_A:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin A", Toast.LENGTH_SHORT).show();
+                 intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
             case R.id.tv_vitmin_B12:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin B12", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
             case R.id.tv_vitmin_B6:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin B6", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
             case R.id.tv_vitmin_B9:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin B9", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_vitmin_C:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin C", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_vitmin_E:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin E", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
             case R.id.tv_vitmin_D:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin D", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_vitmin_K:
                 Toast.makeText(getActivity().getApplicationContext(), "Vitmin K", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
             case R.id.tv_cryptoxanthin:
                 Toast.makeText(getActivity().getApplicationContext(), "Cryptoxanthin", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_lycopene:
                 Toast.makeText(getActivity().getApplicationContext(), "Lycopene", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_folic_acid:
                 Toast.makeText(getActivity().getApplicationContext(), "Folic Acid", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_choline:
                 Toast.makeText(getActivity().getApplicationContext(), "Choline", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_carotene:
                 Toast.makeText(getActivity().getApplicationContext(), "Carotene", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
 
             case R.id.tv_betaine:
                 Toast.makeText(getActivity().getApplicationContext(), "Betaine", Toast.LENGTH_SHORT).show();
+
+                intent = new Intent(getActivity().getApplicationContext(), RichFoodDetailAcivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
                 break;
         }
     }

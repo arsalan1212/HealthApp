@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,67 +7,84 @@
     android:background="@drawable/activity_background"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+    <!-- Toolbar layout start-->
 
-    <include layout="@layout/app_toolbar"
-        android:id="@+id/calorie_toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:id="@+id/banner"
+        android:background="#216966">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back_icon"
+            android:layout_marginLeft="10dp"
+            android:onClick="GoBackbtn"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:text="Calculator"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/info"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <!--Toolbar layout end-->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#fff"
-        android:textStyle="bold"
         android:text="Calorie"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:gravity="center"
-        android:typeface="serif"
-        android:layout_marginTop="15dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:text="Calculator"
-        android:textSize="25sp"
-        android:gravity="center"
-        android:typeface="serif"
-        android:layout_marginTop="-8dp"
-       />
+        android:typeface="sans"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/banner"
+        android:id="@+id/tvCalorieTitle"/>
 <!-- ScrollView start -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_below="@id/tvCalorieTitle">
 
             <!-- Gender layout Start -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/tv_BMItitle"
+                android:id="@+id/layout_gender"
+                >
 
-                <TextView
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gender:"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#fff"
-                    android:layout_marginLeft="10dp"
-                    />
+                    android:orientation="vertical"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/layout_male_calorie"
+                    >
 
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_gravity="center">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/man_avatar_unselect"
+                        android:id="@+id/imageMaleAvatorCalorie"/>
 
 
                     <TextView
@@ -75,31 +92,36 @@
                         android:layout_height="wrap_content"
                         android:text="Male"
                         android:textSize="20sp"
-                        android:textColor="#fff"
-                        android:layout_marginRight="10dp"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:id="@+id/radioMale"/>
+                        android:textColor="@color/light_green"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/tvMaleCalorie"/>
+
+                </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/layout_female_calorie">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/imageFemaleAvatorCalorie"
+                        android:src="@drawable/female_avatar_unselect"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female"
                         android:textSize="20sp"
-                        android:textColor="#fff"
-                        android:layout_marginLeft="20dp"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/radioFemale"
-                        android:layout_marginLeft="10dp"/>
-
-
-                </RadioGroup>
+                        android:textColor="@color/light_green"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/tvFemaleCalorie"/>
+                </LinearLayout>
             </LinearLayout>
 
             <!-- Gender layout end -->
@@ -109,76 +131,214 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_age"
-                android:textColor="#767676"
-                android:textColorHint="#767676"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/searchbox"
+                android:textColor="#ffffff"
+                android:textColorHint="#8a979d"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:padding="12dp"
-                android:hint="Enter your Age in Years (i.e. 23)"
+                android:hint="Age"
+                android:gravity="center"
+                android:backgroundTint="#fff"
                 android:inputType="number|numberDecimal"
               />
 
+            <Spinner
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_weight_calorie"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/down_arrow"
+                android:popupBackground="#8a979d"
+                android:entries="@array/bmi_weight"
+                android:layout_below="@id/et_age"
+              android:layout_gravity="center"
+                />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_weight"
-                android:textColor="#767676"
-                android:textColorHint="#767676"
+                android:textColor="#ffffff"
+                android:textColorHint="#8a979d"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/searchbox"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:padding="12dp"
-                android:hint="Enter your Weight in Kg (i.e. 65)"
+                android:hint="Weight"
+                android:gravity="center"
+                android:backgroundTint="#fff"
                 android:inputType="number|numberDecimal"
                />
+
+            <Spinner
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_height_calorie"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/down_arrow"
+                android:popupBackground="#8a979d"
+                android:entries="@array/calorie_height"
+                android:layout_below="@id/et_age"
+                android:layout_gravity="center"
+                />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_height"
-                android:textColor="#767676"
-                android:textColorHint="#767676"
+                android:textColor="#ffffff"
+                android:textColorHint="#8a979d"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/searchbox"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:padding="12dp"
-                android:hint="Enter your Height in feet.inch(i.e. 5.4)"
+                android:hint="Height"
+                android:backgroundTint="#fff"
+                android:gravity="center"
                 android:inputType="number|numberDecimal"
                />
 
             <Button
                 android:id="@+id/calc"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:onClick="calculateCalorie"
-                android:text="@string/calculateCalorie"
+                android:text="@string/calculate"
                 android:textAllCaps="false"
                 android:textSize="22sp"
-                android:background="#2e80a0"
+                android:background="@drawable/rounded_button_bg"
                 android:padding="10dp"
                 android:textColor="#fff"
                 />
 
+        </LinearLayout>
+    <!-- ScrollView end-->
+
+    <!-- Footer layout start -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#018b82"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/layout_Footer"
+        android:gravity="center"
+        >
+
+        <!-- Layout disease start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="2dp"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="5dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/disease"
+                android:id="@+id/imageViewDisease"
+                android:layout_gravity="center"/>
             <TextView
-                android:id="@+id/CalorieResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:typeface="serif" />
-
-
+                android:text="Disease"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
         </LinearLayout>
-    </ScrollView>
+        <!-- Layout disease end-->
 
-    <!-- ScrollView end-->
-</LinearLayout>
+
+        <!-- Layout plant start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/plant"
+                android:id="@+id/imageViewPlant"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plant"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout plant end-->
+
+        <!-- Layout favorite start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/favorite"
+                android:id="@+id/imageViewFavorite"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout favorite end-->
+
+        <!-- Layout notes start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/notes"
+                android:id="@+id/imageViewNotes"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout notes end-->
+
+
+        <!-- Layout setting start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/setting"
+                android:id="@+id/imageViewSetting"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Setting"
+                android:textSize="9sp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout setting end-->
+
+    </LinearLayout>
+    <!-- Footer layout end -->
+</RelativeLayout>

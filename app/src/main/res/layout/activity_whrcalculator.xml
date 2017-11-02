@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,56 +7,77 @@
     android:background="@drawable/activity_background"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <include layout="@layout/app_toolbar"
-        android:id="@+id/whr_toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:id="@+id/banner"
+        android:background="#216966">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back_icon"
+            android:layout_marginLeft="10dp"
+            android:onClick="GoBackbtn"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:text="Calculator"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/info"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <!-- Toolbar Relative end-->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WHR"
-        android:textStyle="bold"
+        android:text="Waist-Hip Ratio"
         android:textColor="#fff"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:typeface="serif"
-        android:layout_marginTop="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calculator"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:gravity="center"
         android:typeface="sans"
-        android:layout_marginTop="-8dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/banner"
+        android:id="@+id/tv_waist_hip_ratio"/>
 
 
     <!-- Gender layout Start -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:gravity="center_horizontal"
+        android:layout_below="@id/tv_waist_hip_ratio"
+        android:id="@+id/layout_gender"
+        >
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender:"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#fff"
-            android:layout_marginLeft="10dp"
-            />
+            android:orientation="vertical"
+            android:layout_marginRight="15dp"
+            android:id="@+id/layout_male"
+            >
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/man_avatar_unselect"
+                android:id="@+id/imageMaleAvator"/>
 
 
             <TextView
@@ -64,105 +85,237 @@
                 android:layout_height="wrap_content"
                 android:text="Male"
                 android:textSize="20sp"
-                android:textColor="#fff"
-                android:layout_marginRight="10dp"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:id="@+id/radioWHRMale"/>
+                android:textColor="@color/light_green"
+               android:layout_marginTop="5dp"
+                android:id="@+id/tvMale"/>
+
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/layout_female">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:id="@+id/imageFemaleAvator"
+                android:src="@drawable/female_avatar_unselect"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
                 android:textSize="20sp"
-                android:textColor="#fff"
-                android:layout_marginLeft="20dp"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioWHRFemale"
-                android:layout_marginLeft="10dp"/>
+                android:textColor="@color/light_green"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:id="@+id/tvFemale"/>
+        </LinearLayout>
 
 
-        </RadioGroup>
+
     </LinearLayout>
 
     <!-- Gender layout end -->
 
 
+    <Spinner
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_waist"
+      android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:drawableLeft="@drawable/down_arrow"
+        android:popupBackground="#8a979d"
+        android:entries="@array/waise_array"
+        android:layout_below="@id/layout_gender"
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et_waist"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/searchbox"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:padding="12dp"
-        android:hint="Enter your Waist in Inch (i.e. 100)"
+        android:gravity="center"
+        android:hint="Waist"
         android:inputType="number|numberDecimal"
-        android:textColorHint="#767676"
-        android:textColor="#767676"/>
+        android:textColorHint="#8a979d"
+        android:textColor="#fff"
+       android:layout_below="@id/spinner_waist"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/white"/>
 
+    <Spinner
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/waise_array"
+        android:id="@+id/spinner_hip"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:popupBackground="#8a979d"
+        android:layout_below="@id/et_waist"
+        android:layout_centerHorizontal="true"
+         android:drawableLeft="@drawable/down_arrow"></Spinner>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et_hip"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/searchbox"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:padding="12dp"
-        android:hint="Enter your Hip in Inch (i.e. 110)"
+        android:hint="Hip"
         android:inputType="number|numberDecimal"
-        android:textColorHint="#767676"
-        android:textColor="#767676"/>
+        android:textColorHint="#8a979d"
+        android:layout_below="@id/spinner_hip"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:backgroundTint="@android:color/white"
+        />
 
 
     <Button
         android:id="@+id/calc"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:onClick="calculateWHR"
-        android:text="@string/calculateWHR"
+        android:text="@string/calculate"
         android:textAllCaps="false"
         android:textSize="22sp"
-        android:background="#2e80a0"
-        android:padding="10dp"
+        android:background="@drawable/rounded_button_bg"
+        android:padding="8dp"
         android:textColor="#fff"
+        android:layout_below="@id/et_hip"
+        android:layout_centerHorizontal="true"
         />
 
-    <TextView
-        android:id="@+id/WHRResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textSize="22sp"
-        android:textColor="#fff"
-        android:typeface="serif"
-        android:textStyle="bold"/>
+    <!-- layout footer start-->
 
-    <TextView
-        android:id="@+id/tvDiseaseRisk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:typeface="serif"
-        android:background="@drawable/tv_background"
-        android:padding="15dp"
-        android:visibility="gone"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-       />
-</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#018b82"
+        android:layout_alignParentBottom="true">
+
+        <!-- Layout disease start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/disease"
+                android:id="@+id/imageViewDisease"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disease"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout disease end-->
+
+
+        <!-- Layout plant start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="35dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/plant"
+                android:id="@+id/imageViewPlant"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plant"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout plant end-->
+
+        <!-- Layout favorite start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="35dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/favorite"
+                android:id="@+id/imageViewFavorite"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout favorite end-->
+
+        <!-- Layout notes start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="35dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/notes"
+                android:id="@+id/imageViewNotes"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout notes end-->
+
+
+        <!-- Layout setting start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="35dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/setting"
+                android:id="@+id/imageViewSetting"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Setting"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <!-- Layout setting end-->
+
+    </LinearLayout>
+
+
+    <!--layout footer end-->
+
+
+
+
+</RelativeLayout>

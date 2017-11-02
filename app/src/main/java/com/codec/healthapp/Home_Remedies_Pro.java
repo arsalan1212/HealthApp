@@ -43,7 +43,6 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 public class Home_Remedies_Pro extends AppCompatActivity {
     StickyListHeadersListView stickyList;
     ArrayList<HomeRemediesModel> parent = new ArrayList<>();
-  //  ArrayList<ArrayList<HomeRemSubCatModel>> child= new ArrayList<>();
     LHV_Visit_History_Adapter adapter;
     private RelativeLayout layoutRecyclerView;
     private LinearLayout layoutConnection;

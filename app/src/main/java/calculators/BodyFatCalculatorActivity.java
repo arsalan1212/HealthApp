@@ -1,48 +1,95 @@
 package calculators;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.codec.healthapp.MainActivity;
 import com.codec.healthapp.R;
 
-public class BodyFatCalculatorActivity extends AppCompatActivity {
+public class BodyFatCalculatorActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Toolbar mToolbar;
     private EditText editTextWeight,editTextWaist;
-    private RadioButton radioButtonMale,radioButtonFemale;
-    private TextView tvBodyFatResult,tvBodyFatDescription;
+    private TextView tvMaleBodyFat,tvFemaleBodyFat,tvBodyFatTitle;
+    private ImageView imageViewMale,imageViewFemale;
+    private LinearLayout layout_male ,layout_female;
+    private String gender="";
+    private Spinner mSpinnerWeight, mSpinnerWaist;
+    private String[] fat_weight,fat_waist;
+    private String spinnerWaist,spinnerWeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_fat_calculator);
 
-        mToolbar = findViewById(R.id.bodyfat_toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Body Fat Calculator");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //setting the Custom font
+        tvBodyFatTitle = findViewById(R.id.tvBodyFatTitle);
+        Typeface typeface =Typeface.createFromAsset(getAssets(),"fonts/sansation_light.ttf");
+        tvBodyFatTitle.setTypeface(typeface);
 
+        fat_weight = getResources().getStringArray(R.array.bodyfat_weight);
+        fat_waist = getResources().getStringArray(R.array.bodyfat_waist);
 
         editTextWeight = findViewById(R.id.et_BodyFatWeight);
         editTextWaist = findViewById(R.id.et_BodyFatWaist);
 
-        tvBodyFatResult = findViewById(R.id.BodyFatResult);
-        tvBodyFatDescription = findViewById(R.id.tvBodyFatDescription);
+        layout_male = findViewById(R.id.layout_male_BodyFat);
+        layout_female = findViewById(R.id.layout_female_BodyFat);
 
-        radioButtonMale = findViewById(R.id.radioBodyFatMale);
-        radioButtonFemale = findViewById(R.id.radioBodyFatFemale);
+        tvMaleBodyFat = findViewById(R.id.tvMaleBodyFat);
+        tvFemaleBodyFat = findViewById(R.id.tvFemaleBodyFat);
 
-    }
+        imageViewMale = findViewById(R.id.imageMaleAvatorBodyFat);
+        imageViewFemale = findViewById(R.id.imageFemaleAvatorBodyFat);
 
-    @Override
-    public void onBackPressed() {
+        layout_male.setOnClickListener(this);
+        layout_female.setOnClickListener(this);
+
+        mSpinnerWeight = findViewById(R.id.spinner_weight_bodyFat);
+        mSpinnerWaist = findViewById(R.id.spinner_waist_bodyFat);
+
+
+        mSpinnerWeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                spinnerWeight = fat_weight[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        mSpinnerWaist.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+               spinnerWaist = fat_waist[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
     }
 
     //calculating the body fat
@@ -53,38 +100,60 @@ public class BodyFatCalculatorActivity extends AppCompatActivity {
         String strWaist = editTextWaist.getText().toString().trim();
 
 
-        if( !TextUtils.isEmpty(strWeight) && !TextUtils.isEmpty(strWaist)){
+        if(!gender.equals("")){
 
-            float weightValue = Float.parseFloat(strWeight);
-            float waistValue = Float.parseFloat(strWaist);
+            if( !TextUtils.isEmpty(strWaist) && !TextUtils.isEmpty(strWeight)){
 
-            if( weightValue >0  && waistValue >0){
+                float waistValue = Float.parseFloat(strWaist);
+                float weightValue = Float.parseFloat(strWeight);
 
-                if(radioButtonMale.isChecked()){
+                double weight=0,waist=0;
+                if( waistValue >0  && weightValue >0){
 
-                    calculateMaleBodyFat(weightValue,waistValue);
+                    if(spinnerWeight.equals("Kgs"))
+                    {
+                        weight =weightValue * 2.2046;
+                    }
+                    else if(spinnerWeight.equals("lbs")){
+                        weight = weightValue;
+                    }
+
+                    if(spinnerWaist.equals("Cms")){
+                        waist =waistValue * 0.39370;
+                    }
+                    else if(spinnerWaist.equals("Inches")){
+                        waist = waistValue;
+                    }
+                    if(gender.equals("male")){
+
+                        calculateMaleBodyFat(weight,waist);
+                    }
+                    else if(gender.equals("female")){
+
+                        calculateFemaleBodyFat(weight,waist);
+                    }
                 }
-                else if(radioButtonFemale.isChecked()){
-
-                    calculateFemaleBodyFat(weightValue,waistValue);
+                else{
+                    Toast.makeText(this, "Please Real value for all the Fields", Toast.LENGTH_SHORT).show();
                 }
+
             }
             else{
-                Toast.makeText(this, "Please Real value for all the Fields", Toast.LENGTH_SHORT).show();
-            }
 
+                Toast.makeText(this, "Fill all the Required Fields", Toast.LENGTH_SHORT).show();
+            }
         }
         else{
-
-            Toast.makeText(this, "Fill all the Required Fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "First Select Your Gender", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     //calculating the Male body Fat
-    private void calculateMaleBodyFat( float weightValue, float waistValue)
+    private void calculateMaleBodyFat( double weightValue, double waistValue)
     {
         String result="";
-        double BF = -98.42 + 4.15 * waistValue - .082 * weightValue;
+        double BF = -98.42 + (4.15 * waistValue) - (.082 * weightValue);
         double  BFPercent = BF / weightValue;
 
         BFPercent = BFPercent * 100;
@@ -107,19 +176,21 @@ public class BodyFatCalculatorActivity extends AppCompatActivity {
             result ="Overweight or Obese";
         }
 
-        tvBodyFatResult.setText("Your Body Fat is: "+BFPercent +" %");
 
         if(BFPercent >=2){
-            tvBodyFatDescription.setVisibility(View.VISIBLE);
-            tvBodyFatDescription.setText("Body Fat type is: "+result);
 
+            ShowBodyFatDialog(result, BFPercent);
+        }else{
+            Toast.makeText(this, "Body Fat Percentage must be Greater" +
+                    " than 2 and current Value is:"+BFPercent, Toast.LENGTH_SHORT).show();
         }
-
 
     }
 
+
+
     //calculating the Female body Fat
-    private void calculateFemaleBodyFat( float weightValue, float waistValue) {
+    private void calculateFemaleBodyFat( double weightValue, double waistValue) {
 
         String result="";
         double BF = -76.76 + (4.15 * waistValue) - (.082 * weightValue);;
@@ -145,14 +216,79 @@ public class BodyFatCalculatorActivity extends AppCompatActivity {
             result ="Overweight or Obese";
         }
 
-        tvBodyFatResult.setText("Your Body Fat is: "+BFPercent +" %");
-
         if(BFPercent >=10){
-            tvBodyFatDescription.setVisibility(View.VISIBLE);
-            tvBodyFatDescription.setText("Body Fat type is: "+result);
+
+            ShowBodyFatDialog(result,BFPercent);
+        }
+        else{
+            Toast.makeText(this, "Body Fat Percentage must be Greater" +
+                    " than 10 and current Value is:"+BFPercent, Toast.LENGTH_SHORT).show();
         }
 
 
     }
 
+    //Showing the Body Fat dialog
+    private void ShowBodyFatDialog(String result, double BFPercent) {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.result_dialog_layout);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        dialog.setCancelable(false);
+
+        TextView tvWHRResult = dialog.findViewById(R.id.textViewResult);
+        TextView tvResultHeading = dialog.findViewById(R.id.textViewResultHeading);
+        TextView tvResultRange = dialog.findViewById(R.id.textViewResultRange);
+        ImageView imageViewClose = dialog.findViewById(R.id.imageView_dialog_close);
+
+
+        tvWHRResult.setText("Your Body Fat is:\n"+BFPercent +" %");
+
+        tvResultHeading.setText("It suggest that Your Body Fat Type is:");
+
+        tvResultRange.setText(result);
+
+        imageViewClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+    //back button
+    public void GoBackbtn(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+
+
+        if(view.getId() == R.id.layout_male_BodyFat){
+            gender ="male";
+
+            tvMaleBodyFat.setTextColor(Color.WHITE);
+            imageViewMale.setImageResource(R.drawable.man_avatar_select);
+
+            //changing female text and image
+            tvFemaleBodyFat.setTextColor(Color.parseColor("#8a979d"));
+            imageViewFemale.setImageResource(R.drawable.female_avatar_unselect);
+        }
+        else if(view.getId() == R.id.layout_female_BodyFat){
+
+            gender= "female";
+
+            tvFemaleBodyFat.setTextColor(Color.WHITE);
+            imageViewFemale.setImageResource(R.drawable.female_avatar_select);
+
+            //changing male text and image
+            tvMaleBodyFat.setTextColor(Color.parseColor("#8a979d"));
+            imageViewMale.setImageResource(R.drawable.man_avatar_unselect);
+
+        }
+    }
 }

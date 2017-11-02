@@ -36,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(obj);
     }
 
+    public void HealthBenefitsClickListiner(View view){
+
+        Intent obj = new Intent(MainActivity.this,Health_Benefits_Activity.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+    }
+
     //BMI Calculator
     public void BMICalculator(View view){
 

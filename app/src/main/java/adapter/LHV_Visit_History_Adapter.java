@@ -2,7 +2,7 @@ package adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.DataSetObserver;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +13,8 @@ import com.codec.healthapp.HomeRemediesSubCatDetails;
 import com.codec.healthapp.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import model.HomeRemediesModel;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
@@ -28,15 +30,17 @@ public class LHV_Visit_History_Adapter extends BaseAdapter implements StickyList
     public LHV_Visit_History_Adapter(ArrayList<HomeRemediesModel> arrayListParent,Context context){
         this.context = context;
         parentArraylist =arrayListParent;
+
+        //sorting the Arraylist
+        Collections.sort(parentArraylist, new Comparator<HomeRemediesModel>() {
+            @Override
+            public int compare(final HomeRemediesModel object1, final HomeRemediesModel object2) {
+                return object1.getCategoryName().compareTo(object2.getCategoryName());
+            }
+        });
     }
 
-    public void setFilter(ArrayList<HomeRemediesModel> newList){
 
-        parentArraylist =new ArrayList<>();
-        parentArraylist.clear();
-        parentArraylist.addAll(newList);
-        notifyDataSetChanged();
-    }
 
     @Override
     public View getHeaderView(int position, View convertView, ViewGroup parent) {
@@ -52,7 +56,11 @@ public class LHV_Visit_History_Adapter extends BaseAdapter implements StickyList
         }
         //set header text as first char in name
 
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/sansation_light.ttf");
+
         String headerText = "" + parentArraylist.get(position).getCategoryName().subSequence(0, 1).charAt(0);
+
+        holder.text.setTypeface(typeface);
         holder.text.setText(headerText);
         return convertView;
     }
@@ -61,27 +69,7 @@ public class LHV_Visit_History_Adapter extends BaseAdapter implements StickyList
     public long getHeaderId(int position) {
         return parentArraylist.get(position).getCategoryName().subSequence(0, 1).charAt(0);
     }
-
-    @Override
-    public boolean areAllItemsEnabled() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled(int i) {
-        return false;
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-
-    }
-
+    
     @Override
     public int getCount() {
         return parentArraylist.size();
@@ -95,11 +83,6 @@ public class LHV_Visit_History_Adapter extends BaseAdapter implements StickyList
     @Override
     public long getItemId(int i) {
         return  i;
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return false;
     }
 
     @Override
@@ -118,7 +101,9 @@ public class LHV_Visit_History_Adapter extends BaseAdapter implements StickyList
         }
 
 
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/sansation_light.ttf");
         final int position =i;
+        holder.text.setTypeface(typeface);
         holder.text.setText(parentArraylist.get(i).getCategoryName());
         holder.text.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,19 +124,13 @@ public class LHV_Visit_History_Adapter extends BaseAdapter implements StickyList
     class ViewHolder {
         TextView text;
     }
-    @Override
-    public int getItemViewType(int i) {
-        return i;
-    }
 
-    @Override
-    public int getViewTypeCount() {
-        return parentArraylist.size();
-    }
+    public void setFilter(ArrayList<HomeRemediesModel> newList){
 
-    @Override
-    public boolean isEmpty() {
-        return false;
+        parentArraylist =new ArrayList<>();
+        parentArraylist.clear();
+        parentArraylist.addAll(newList);
+        notifyDataSetChanged();
     }
 }
 

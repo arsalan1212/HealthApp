@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">HealthApp</string>
     <string name="check_your_internet_connection">Please check Your internet Connection</string>
-    <string name="calculateBMI">Calculate BMI</string>
+    <string name="calculateBMI">Calculate</string>
 
 
     <!-- For BMI Calculator-->
@@ -9,15 +9,43 @@
     <string name="very_severely_underweight">Very Severely underweight</string>
     <string name="severely_underweight">Serverely underweight</string>
     <string name="underweight">Underweight</string>
-    <string name="normal">Normal</string>
+    <string name="normal">Normal Weight</string>
     <string name="overweight">Overweight</string>
-    <string name="obese_class_i">Obsese class 1(Moderately Obese)</string>
-    <string name="obese_class_ii">Obsese class 2(Severely Obese)</string>
-    <string name="obese_class_iii">Obsese class 1(Very Severely Obese)</string>
-    <string name="calculateCalorie">Calculate Calorie</string>
-    <string name="calculateWHR">Calculate WHR</string>
-    <string name="calculateBodyFat">Calculate Body Fat</string>
+    <string name="obese_class_i">Obsese class 1(Moderately Obese) Weight</string>
+    <string name="obese_class_ii">Obsese class 2(Severely Obese)  Weight</string>
+    <string name="obese_class_iii">Obsese class 1(Very Severely Obese)  Weight</string>
+    <string name="calculate">Calculate</string>
 
+
+    <string-array name="waise_array">
+        <item>Inches</item>
+        <item>Cms</item>
+    </string-array>
+
+    <string-array name="bmi_weight">
+        <item>Kgs</item>
+        <item>lbs</item>
+    </string-array>
+
+    <string-array name="calorie_height">
+        <item>Cms</item>
+        <item>Inches</item>
+    </string-array>
+
+    <string-array name="bodyfat_weight">
+        <item>lbs</item>
+        <item>Kgs</item>
+    </string-array>
+
+    <string-array name="bodyfat_waist">
+        <item>Inches</item>
+        <item>Cms</item>
+    </string-array>
+
+    <string-array name="bmi_height">
+        <item>Meter</item>
+        <item>Inches</item>
+    </string-array>
 
     <!-- For body wise activity [different body parts title and description array] start-->
 

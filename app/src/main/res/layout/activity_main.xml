@@ -152,7 +152,8 @@
             android:layout_toRightOf="@+id/v3"
             android:layout_below="@+id/v2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="HealthBenefitsClickListiner">
             <ImageView
                 android:id="@+id/health_benefits_button"
                 android:layout_width="35dp"

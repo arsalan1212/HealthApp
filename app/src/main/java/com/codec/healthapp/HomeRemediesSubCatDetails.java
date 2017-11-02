@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -26,19 +26,19 @@ import model.HomeRemSubCatModel;
 
 public class HomeRemediesSubCatDetails extends AppCompatActivity {
 
-    private Toolbar  mToolbar;
     String subCategoryID;
     String categoryName;
     ArrayList arraylist_homeRemSubCat = new ArrayList();
     private RecyclerView mRecyclerView;
     private HomeRemSubCatDetailAdapter adapter;
     private ProgressBar mProgressbar;
+    TextView tvTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_remedies_sub_cat_details);
 
-        mToolbar = findViewById(R.id.toolbar_homeRemsubCatDetail);
+        tvTitle = findViewById(R.id.tvhomeRemediesDetail);
 
         mProgressbar = findViewById(R.id.progress_homeRemSubDetail);
 
@@ -53,12 +53,18 @@ public class HomeRemediesSubCatDetails extends AppCompatActivity {
             subCategoryID = intent.getStringExtra("sub_cat_id");
             categoryName = intent.getStringExtra("category_name");
 
-            setSupportActionBar(mToolbar);
-            getSupportActionBar().setTitle("100+ Ailments "+categoryName);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            tvTitle.setText("100+ Ailments "+categoryName);
+
         }
 
         FetchSubCategoryDetail();
+    }
+//back button
+    public void GoBackbtn(View view){
+        Intent intent = new Intent(this, Home_Remedies_Pro.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     //fetching data from server
