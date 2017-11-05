@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.codec.healthapp.Health_Benefits_Activity;
+import com.codec.healthapp.Home_Remedies_Pro;
 import com.codec.healthapp.MainActivity;
 import com.codec.healthapp.R;
 
@@ -26,7 +28,7 @@ public class calorieCalculatorActivity extends AppCompatActivity  implements Vie
 
 
     private EditText editTextAge,editTextWeight,editTextHeight;
-    private LinearLayout layout_male, layout_female;
+    private LinearLayout layout_male, layout_female,layout_disease,layout_plant;
     private TextView tvMaleCalorie, tvFemaleCalorie,tvCalorieTitle;
     private ImageView imageViewFemale, imageViewMale;
     private String gender="";
@@ -53,6 +55,9 @@ public class calorieCalculatorActivity extends AppCompatActivity  implements Vie
         layout_male = findViewById(R.id.layout_male_calorie);
         layout_female = findViewById(R.id.layout_female_calorie);
 
+        layout_disease = findViewById(R.id.layout_disease);
+        layout_plant = findViewById(R.id.layout_plant);
+
         tvMaleCalorie = findViewById(R.id.tvMaleCalorie);
         tvFemaleCalorie = findViewById(R.id.tvFemaleCalorie);
 
@@ -61,6 +66,9 @@ public class calorieCalculatorActivity extends AppCompatActivity  implements Vie
 
         layout_male.setOnClickListener(this);
         layout_female.setOnClickListener(this);
+
+        layout_disease.setOnClickListener(this);
+        layout_plant.setOnClickListener(this);
 
         mSpinnerWeightCalorie = findViewById(R.id.spinner_weight_calorie);
         mSpinnerHeightCalorie = findViewById(R.id.spinner_height_calorie);
@@ -91,6 +99,24 @@ public class calorieCalculatorActivity extends AppCompatActivity  implements Vie
             }
         });
 
+    }
+
+
+    //disease click listiner
+    public void DiseaseClickListiner(View view){
+        Intent obj = new Intent(this,Home_Remedies_Pro.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+        finish();
+    }
+
+    //plant click listiner
+    public void PlantClickListiner(View view){
+
+        Intent obj = new Intent(this,Health_Benefits_Activity.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+        finish();
     }
 
 
@@ -208,6 +234,7 @@ public class calorieCalculatorActivity extends AppCompatActivity  implements Vie
     @Override
     public void onClick(View view) {
 
+        Intent intent=null;
         if(view.getId() == R.id.layout_male_calorie){
 
             gender ="male";
@@ -229,8 +256,27 @@ public class calorieCalculatorActivity extends AppCompatActivity  implements Vie
             //changing male text and image
             tvMaleCalorie.setTextColor(Color.parseColor("#8a979d"));
             imageViewMale.setImageResource(R.drawable.man_avatar_unselect);
-
-
         }
+
+        //for footer
+        switch (view.getId()){
+
+            case R.id.layout_disease:
+                intent = new Intent(this,Home_Remedies_Pro.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.layout_plant:
+
+                intent = new Intent(this,Health_Benefits_Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+
+                break;
+        }
+
     }
 }

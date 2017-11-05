@@ -40,4 +40,21 @@ public class Rich_Food extends AppCompatActivity {
         startActivity(backIntent);
         finish();
     }
+
+    //disease click listiner
+    public void DiseaseClickListiner(View view){
+        Intent obj = new Intent(this,Home_Remedies_Pro.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+        finish();
+    }
+
+    //plant click listiner
+    public void PlantClickListiner(View view){
+
+        Intent obj = new Intent(this,Health_Benefits_Activity.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+        finish();
+    }
 }

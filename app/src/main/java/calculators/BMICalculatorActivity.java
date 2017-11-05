@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.codec.healthapp.Health_Benefits_Activity;
+import com.codec.healthapp.Home_Remedies_Pro;
 import com.codec.healthapp.MainActivity;
 import com.codec.healthapp.R;
 
@@ -27,7 +29,7 @@ public class BMICalculatorActivity extends AppCompatActivity implements View.OnC
     private EditText height;
     private EditText weight;
     private TextView textViewMale,textViewFemale,tvBMITitle;
-    private LinearLayout layout_male,layout_female;
+    private LinearLayout layout_male,layout_female,layout_disease,layout_plant;
     private ImageView imageViewMale,imageViewFemale;
     private String gender="";
     private Spinner mSpinnerHeightBMI,mSpinnerWeightBMI;
@@ -57,6 +59,12 @@ public class BMICalculatorActivity extends AppCompatActivity implements View.OnC
 
         textViewMale = findViewById(R.id.tvMaleBMI);
         textViewFemale = findViewById(R.id.tvFemaleBMI);
+
+        layout_disease = findViewById(R.id.layout_disease);
+        layout_plant = findViewById(R.id.layout_plant);
+
+        layout_disease.setOnClickListener(this);
+        layout_plant.setOnClickListener(this);
 
         layout_male.setOnClickListener(this);
         layout_female.setOnClickListener(this);
@@ -90,7 +98,6 @@ public class BMICalculatorActivity extends AppCompatActivity implements View.OnC
             }
         });
     }
-
 
     public void calculateBMI(View view){
 
@@ -203,8 +210,7 @@ public class BMICalculatorActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-
-
+        Intent intent =null;
         if(view.getId() == R.id.layout_male_BMI){
 
             gender= "male";
@@ -228,5 +234,26 @@ public class BMICalculatorActivity extends AppCompatActivity implements View.OnC
             imageViewMale.setImageResource(R.drawable.man_avatar_unselect);
             textViewMale.setTextColor(Color.parseColor("#8a979d"));
         }
+
+        //for footer
+        switch (view.getId()){
+
+            case R.id.layout_disease:
+                intent = new Intent(this,Home_Remedies_Pro.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.layout_plant:
+
+                intent = new Intent(this,Health_Benefits_Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+
+                break;
+        }
+
     }
 }

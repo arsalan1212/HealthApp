@@ -17,4 +17,8 @@ public class MyAppUrl {
     public static String HEALTH_BENEFITS_URL= "http://projects.multibizservices.com/HEALTHY_HOME/healthy_home/sub_categories.php?category_id=4";
 
     public static String HEALTH_BENEFITS_CATEGORY_DETAIL_URL="http://projects.multibizservices.com/HEALTHY_HOME/healthy_home/health_detail.php?sub_id=";
+
+    public static String DAILY_HEALTH_HACK_URL ="https://allremedies.com/";
+
+    public static String QUESTION_URL="https://allremedies.com/ask-for-help/";
 }

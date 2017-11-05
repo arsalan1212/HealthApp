@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import Utils.MyAppUrl;
 import calculators.BMICalculatorActivity;
 import calculators.BodyFatCalculatorActivity;
 import calculators.WHRCalculatorActivity;
 import calculators.calorieCalculatorActivity;
+import webView.WebViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,5 +75,23 @@ public class MainActivity extends AppCompatActivity {
         Intent bodyFatIntent = new Intent(this, BodyFatCalculatorActivity.class);
         bodyFatIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(bodyFatIntent);
+    }
+
+    //daily health hack click
+    public void GoToWebViewActivity(View view){
+
+        Intent intent = new Intent(this, WebViewActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if(view.getId() == R.id.daily_hacks_button){
+            intent.putExtra("url", MyAppUrl.DAILY_HEALTH_HACK_URL);
+        }
+
+        else if(view.getId() == R.id.question_button){
+            intent.putExtra("url", MyAppUrl.QUESTION_URL);
+        }
+
+        startActivity(intent);
+
     }
 }

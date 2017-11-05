@@ -86,6 +86,25 @@ public class Home_Remedies_Pro extends AppCompatActivity {
         });
 
     }
+
+
+    //disease click listiner
+    public void DiseaseClickListiner(View view){
+        Intent obj = new Intent(this,Home_Remedies_Pro.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+        finish();
+    }
+
+    //plant click listiner
+    public void PlantClickListiner(View view){
+
+        Intent obj = new Intent(this,Health_Benefits_Activity.class);
+        obj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(obj);
+        finish();
+    }
+
     private TextWatcher mTextwatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.codec.healthapp.Health_Benefits_Activity;
+import com.codec.healthapp.Home_Remedies_Pro;
 import com.codec.healthapp.MainActivity;
 import com.codec.healthapp.R;
 
@@ -25,7 +27,7 @@ public class BodyFatCalculatorActivity extends AppCompatActivity implements View
     private EditText editTextWeight,editTextWaist;
     private TextView tvMaleBodyFat,tvFemaleBodyFat,tvBodyFatTitle;
     private ImageView imageViewMale,imageViewFemale;
-    private LinearLayout layout_male ,layout_female;
+    private LinearLayout layout_male ,layout_female,layout_disease,layout_plant;
     private String gender="";
     private Spinner mSpinnerWeight, mSpinnerWaist;
     private String[] fat_weight,fat_waist;
@@ -50,6 +52,10 @@ public class BodyFatCalculatorActivity extends AppCompatActivity implements View
         layout_male = findViewById(R.id.layout_male_BodyFat);
         layout_female = findViewById(R.id.layout_female_BodyFat);
 
+        layout_disease = findViewById(R.id.layout_disease);
+        layout_plant = findViewById(R.id.layout_plant);
+
+
         tvMaleBodyFat = findViewById(R.id.tvMaleBodyFat);
         tvFemaleBodyFat = findViewById(R.id.tvFemaleBodyFat);
 
@@ -58,6 +64,9 @@ public class BodyFatCalculatorActivity extends AppCompatActivity implements View
 
         layout_male.setOnClickListener(this);
         layout_female.setOnClickListener(this);
+
+        layout_disease.setOnClickListener(this);
+        layout_plant.setOnClickListener(this);
 
         mSpinnerWeight = findViewById(R.id.spinner_weight_bodyFat);
         mSpinnerWaist = findViewById(R.id.spinner_waist_bodyFat);
@@ -267,7 +276,7 @@ public class BodyFatCalculatorActivity extends AppCompatActivity implements View
     @Override
     public void onClick(View view) {
 
-
+        Intent intent =null;
         if(view.getId() == R.id.layout_male_BodyFat){
             gender ="male";
 
@@ -290,5 +299,27 @@ public class BodyFatCalculatorActivity extends AppCompatActivity implements View
             imageViewMale.setImageResource(R.drawable.man_avatar_unselect);
 
         }
+
+
+        //for footer
+        switch (view.getId()){
+
+            case R.id.layout_disease:
+                intent = new Intent(this,Home_Remedies_Pro.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.layout_plant:
+
+                intent = new Intent(this,Health_Benefits_Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+
+                break;
+        }
+
     }
 }
